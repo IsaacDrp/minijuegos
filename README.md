@@ -100,10 +100,3 @@ function minimax(tablero, profundidad, esMax):
 
 ---
 
-## Implementación (resumen técnico)
-
-### Nim (component)
-- Señales: `cerillosTotales`, `maxPorTurno`, `inputMovimiento`, `inicioJuego`, `mensaje`, `turnoJugador`, `juegoTerminado`.
-- Interfaz: formulario inicial para configurar `cerillosInicial` y `maxPorTurno`, visualización de cerillos (imágenes o emojis), controles para tomar cerillos, reiniciar.
-- Renderizado de cerillos: usar un getter `cerillosArray` para iterar en template.
-
