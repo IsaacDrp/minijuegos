@@ -1,0 +1,109 @@
+/* Contenedor principal */
+.nim {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #fafafa; /* blanco suave */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+/* Título */
+.nim h2 {
+  color: #6b5b95; /* lila pastel */
+  margin-bottom: 1.5rem;
+}
+
+/* Formulario de inicio */
+.nim label {
+  display: block;
+  margin: 0.5rem 0;
+  font-weight: 500;
+  color: #555;
+}
+
+.nim input[type="number"] {
+  width: 60px;
+  padding: 0.3rem 0.5rem;
+  margin-left: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+}
+
+.nim button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #88b0ac; /* azul pastel */
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nim button:hover {
+  background-color: #6b9a97;
+}
+
+/* Estado del juego */
+.nim .estado {
+  margin: 1.5rem 0;
+}
+
+.nim .estado p {
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  color: #444;
+}
+
+/* Cerillos */
+.nim .cerillo {
+  display: inline-block;
+  margin: 0.2rem;
+  width: 24px;
+  height: 40px;
+}
+
+.nim .cerillo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Mensajes */
+.nim p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Controles del turno */
+.nim .control {
+  margin-top: 1rem;
+}
+
+.nim .control input[type="number"] {
+  border-color: #a3c4bc;
+}
+
+.nim .control button {
+  background-color: #f2a19b; /* rosa pastel */
+}
+
+.nim .control button:hover {
+  background-color: #e38f86;
+}
+
+/* Botón reiniciar */
+.nim div[ng-reflect-ng-if="true"] button {
+  background-color: #f2d0a9; /* naranja pastel */
+}
+
+.nim div[ng-reflect-ng-if="true"] button:hover {
+  background-color: #e6b784;
+}

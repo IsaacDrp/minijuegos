@@ -1,0 +1,40 @@
+<section class="nim">
+  <h2>NIM</h2>
+
+  <!-- Formulario de inicio -->
+  <div *ngIf="!inicioJuego()">
+    <label>
+      Número de cerillos:
+      <input type="number" [value]="cerillosInicial()" (input)="cerillosInicial.set($any($event.target).valueAsNumber)">
+    </label>
+    <br>
+    <label>
+      Máximo por turno:
+      <input type="number" [value]="maxPorTurnoInput()" (input)="maxPorTurnoInput.set($any($event.target).valueAsNumber)">
+    </label>
+    <br>
+    <button (click)="iniciarJuego()">Iniciar juego</button>
+  </div>
+
+  <!-- Juego en sí -->
+  <div *ngIf="inicioJuego()">
+    <p>{{ mensaje() }}</p>
+
+    <div class="estado">
+      <p>Cerillos restantes: {{ cerillosTotales() }}</p>
+      <div class="cerillo" *ngFor="let c of cerillosArray; let i = index"><img src="img/nim/cerillo.png" alt=""></div>
+    </div>
+
+    <div class="control" *ngIf="turnoJugador() && !juegoTerminado()">
+      <label>
+        Cerillos a tomar (1-{{ maxPorTurno() }}):
+        <input type="number" [value]="inputMovimiento()" (input)="inputMovimiento.set($any($event.target).valueAsNumber)">
+      </label>
+      <button (click)="jugadorToma()">Tomar</button>
+    </div>
+
+    <div *ngIf="juegoTerminado()">
+      <button (click)="reiniciar()">Reiniciar</button>
+    </div>
+  </div>
+</section>

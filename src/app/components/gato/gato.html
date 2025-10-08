@@ -1,0 +1,20 @@
+<section class="gato">
+  <h2>Juego del Gato (Tic Tac Toe)</h2>
+  <p>{{ mensaje() }}</p>
+
+  <div class="tablero">
+    <div
+      *ngFor="let celda of tablero(); let i = index"
+      class="celda"
+      [class.jugador]="celda === 'X'"
+      [class.maquina]="celda === 'O'"
+      (click)="turnoJugador() && moverJugador(i)"
+    >
+      {{ celda }}
+    </div>
+  </div>
+
+  <div *ngIf="juegoTerminado()" class="fin">
+    <button (click)="reiniciar()">Reiniciar</button>
+  </div>
+</section>

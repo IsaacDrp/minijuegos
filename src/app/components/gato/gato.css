@@ -1,0 +1,66 @@
+.gato {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fafafa;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.gato h2 {
+  color: #6b5b95;
+  margin-bottom: 1rem;
+}
+
+.gato p {
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.celda {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: 2px solid #d8bfd8; /* lila pastel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5a4b8d;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.celda:hover {
+  background-color: #f2eefc;
+  transform: scale(1.03);
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #88b0ac;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #6b9a97;
+}
