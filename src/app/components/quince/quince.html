@@ -1,1 +1,24 @@
-<p>quince works!</p>
+<section class="quince">
+  <h2>Juego de Suma 15</h2>
+  <p>{{ mensaje() }}</p>
+
+  <div class="tablero">
+    <button
+      *ngFor="let carta of cartasDisponibles()"
+      (click)="tomarCarta(carta)"
+      [disabled]="!turnoJugador()"
+    >
+      {{ carta }}
+    </button>
+  </div>
+
+  <div class="estado">
+    <h3>Tus cartas:</h3>
+    <p>{{ cartasJugador().join(', ') || 'Ninguna' }}</p>
+
+    <h3>Cartas de la máquina:</h3>
+    <p>{{ cartasMaquina().join(', ') || 'Ninguna' }}</p>
+  </div>
+
+  <button class="reiniciar" (click)="reiniciar()">Reiniciar</button>
+</section>

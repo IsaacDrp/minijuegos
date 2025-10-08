@@ -1,0 +1,55 @@
+.quince {
+  text-align: center;
+  background: #fafafa;
+  color: #444;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 320px;
+  margin: 2rem auto;
+}
+
+h2 {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 0.7rem;
+  border-radius: 0.6rem;
+  border: none;
+  background: #e8e8e8;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.estado {
+  text-align: left;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.reiniciar {
+  margin-top: 1rem;
+  background: #d7e8ff;
+  border: 1px solid #bcd8ff;
+  color: #333;
+}
