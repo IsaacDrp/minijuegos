@@ -1,1 +1,106 @@
-<p>documentation works!</p>
+<section class="documentacion">
+  <h2>Juegos algoritmicos</h2>
+  <p>Implementación de algoritmos de inteligencia artificial para juegos de mesa simples.</p>
+
+  <h3>Nim</h3>
+  <p>
+    El juego de NIM consiste en que dos jugadores se turnan para tomar entre 1 y n cerillos de un conjunto.
+    El jugador que toma el último cerillo pierde (versión clásica). En esta implementación, la IA está diseñada
+    para jugar óptimamente y ganar siempre que sea posible.
+  </p>
+
+  <h4>Reglas del juego</h4>
+  <ul>
+    <li>Se inicia con un número total de cerillos (por defecto, 21).</li>
+    <li>En cada turno, un jugador puede tomar entre 1 y máximo permitido cerillos (por defecto, 3).</li>
+    <li>El jugador que deja el montón en 0 pierde.</li>
+    <li>El jugador humano comienza primero.</li>
+  </ul>
+
+  <h4>Lógica del algoritmo de la IA</h4>
+  <p> Estrategia óptima:</p>
+  <pre>
+{{ "if (cerillosTotales % 4 !== 0) { 
+  tomar = cerillosTotales % 4; 
+} else { 
+  tomar = 1; 
+}" }}
+  </pre>
+  <p>Explicación:</p>
+  <ul>
+    <li>El número 4 proviene de la suma del máximo permitido por turno (3) + 1.</li>
+    <li>Si el número de cerillos restantes no es múltiplo de 4, la IA puede forzar al jugador a quedar en una posición perdedora.</li>
+    <li>Si el número sí es múltiplo de 4, la IA no puede evitar perder si el jugador juega óptimamente.</li>
+  </ul>
+
+  <h4>Flujo del juego</h4>
+  <ul>
+    <li><strong>Inicio:</strong> El jugador configura el número de cerillos y el máximo por turno. Se inicia el juego con el jugador humano.</li>
+    <li><strong>Turno del jugador:</strong> El jugador elige cuántos cerillos tomar. Si el número es válido, se actualiza el estado. Si los cerillos llegan a 0, el jugador pierde.</li>
+    <li><strong>Turno de la máquina (IA):</strong> La IA calcula cuántos cerillos tomar usando la estrategia óptima. Si los cerillos llegan a 0, el jugador gana.</li>
+    <li><strong>Reinicio:</strong> Se puede reiniciar el juego y volver a configurar los parámetros.</li>
+  </ul>
+
+  <h4>Variables clave</h4>
+  <ul>
+    <li>cerillosTotales: número actual de cerillos en juego.</li>
+    <li>maxPorTurno: máximo de cerillos que se pueden tomar por turno.</li>
+    <li>turnoJugador: booleano que indica si es turno del jugador.</li>
+    <li>juegoTerminado: indica si el juego ha terminado.</li>
+    <li>mensaje: texto mostrado al jugador.</li>
+    <li>inputMovimiento: número de cerillos que el jugador desea tomar.</li>
+  </ul>
+
+  <h3>Gato</h3>
+  <p>Algoritmo Minimax:</p>
+  <p>
+    El algoritmo Minimax se utiliza para determinar la jugada óptima en juegos de dos jugadores por turnos, donde ambos tienen información perfecta del estado del juego y el resultado es de suma cero (lo que gana uno, lo pierde el otro).
+  </p>
+  <p>La IA representa al jugador Max, que busca maximizar su puntuación (ganar), mientras que el jugador humano representa a Min, que busca minimizar la puntuación de la IA (evitar perder).</p>
+
+  <h4>Requisitos del juego para Minimax</h4>
+  <ul>
+    <li>Dos jugadores (Max y Min)</li>
+    <li>Turnos alternados</li>
+    <li>Información perfecta (todos los movimientos visibles)</li>
+    <li>Suma cero (ganar para uno es perder para el otro)</li>
+  </ul>
+
+  <h4>Estructura del árbol de decisiones</h4>
+  <p>Cada jugada genera un nuevo estado del tablero. Desde un estado inicial, se generan todas las jugadas posibles (ramas), y cada una genera más jugadas hasta llegar a los estados terminales.</p>
+
+  <pre>
+{{ "minimax(tablero: string[], profundidad: number, esMax: boolean): any { 
+  if (this.verificarGanador(tablero, 'O')) return { score: 10 - profundidad }; 
+  if (this.verificarGanador(tablero, 'X')) return { score: profundidad - 10 }; 
+  if (tablero.every(c => c !== '')) return { score: 0 }; 
+
+  const movimientos: any[] = []; 
+
+  tablero.forEach((celda, index) => { 
+    if (celda === '') { 
+      const nuevoTablero = [...tablero]; 
+      nuevoTablero[index] = esMax ? 'O' : 'X'; 
+      const resultado = this.minimax(nuevoTablero, profundidad + 1, !esMax); 
+      movimientos.push({ index, score: resultado.score }); 
+    } 
+  }); 
+
+  if (esMax) { 
+    return movimientos.reduce((mejor, mov) => (mov.score > mejor.score ? mov : mejor)); 
+  } else { 
+    return movimientos.reduce((mejor, mov) => (mov.score < mejor.score ? mov : mejor)); 
+  } 
+}" }}
+  </pre>
+
+  <p>Evaluación de puntuación:</p>
+  <ul>
+    <li>Max (IA) busca el score más alto.</li>
+    <li>Min (jugador) busca el score más bajo.</li>
+    <li>La profundidad penaliza las jugadas tardías (ganar rápido es mejor).</li>
+  </ul>
+
+  <h3>Quince</h3>
+  <p>Juego donde ambos jugadores seleccionan cartas y deben formar un trío que sume 15. El jugador que logre sumar 15 gana, en caso contrario empate.</p>
+</section>
